@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/asnganje/job_search_app_backend/issues"
   },
-  "homepage": "https://github.com/asnganje/job_search_app_backend#readme"
+  "homepage": "https://github.com/asnganje/job_search_app_backend#readme",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
 }
