@@ -1,0 +1,19 @@
+{
+  "name": "job_search_app_backend",
+  "version": "1.0.0",
+  "description": "A backend app for a job recruitment platform",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asnganje/job_search_app_backend.git"
+  },
+  "author": "Abdulrahman Nganje",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/asnganje/job_search_app_backend/issues"
+  },
+  "homepage": "https://github.com/asnganje/job_search_app_backend#readme"
+}
