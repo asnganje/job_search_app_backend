@@ -1,0 +1,1 @@
+const connectionString = 'mongodb+srv://nganje:Sule12345@nodeexpressprojects.cux2xus.mongodb.net/jobSearch?retryWrites=true&w=majority'
