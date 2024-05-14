@@ -1,1 +1,7 @@
-const connectionString = 'mongodb+srv://nganje:Sule12345@nodeexpressprojects.cux2xus.mongodb.net/jobSearch?retryWrites=true&w=majority'
+const mongoose = require('mongoose')
+
+const connectDB = (url)=> {
+    return mongoose.connect(url)
+}
+
+module.exports = connectDB
