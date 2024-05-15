@@ -6,6 +6,7 @@ const applicationsRouter = require('./server/routes/applicationRoutes')
 const jobsRouter = require('./server/routes/jobRoutes')
 const connectDB = require('./server/db/connect')
 
+app.use(express.json())
 app.use('/api/v1/users', usersRouter)
 app.use('/api/v1/applications', applicationsRouter)
 app.use('/api/v1/jobs', jobsRouter)
