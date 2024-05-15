@@ -7,7 +7,7 @@ const getApplication = (req,res)=> {
 }
 
 const createApplication = (req,res)=> {
-    res.send('Create an Application')
+    
 }
 
 const updateApplication = (req, res)=> {
