@@ -11,6 +11,13 @@ app.use('/api/v1/users', usersRouter)
 app.use('/api/v1/applications', applicationsRouter)
 app.use('/api/v1/jobs', jobsRouter)
 
+app.use('*', (req, res)=> {
+    res.json({msg: 'Resource or route not found'})
+})
+
+app.use((err, req, res, next)=> {
+    res.json({msg: err})
+})
 const port = process.env.PORT
 const url = process.env.MONGO_URI
 
