@@ -1,8 +1,9 @@
 const Job = require("../models/Job")
+const {StatusCodes} = require('http-status-codes')
 
 const getAllJobs = async (req,res)=> {
         const jobs = await Job.find({})
-        res.status(200).json({status:'success', data: jobs})
+        res.status(StatusCodes.OK).json({status:'success', data: jobs})
 }
 
 const getJob = async (req,res)=> {
@@ -11,13 +12,13 @@ const getJob = async (req,res)=> {
         if(!job){
             return res.status(500).json({msg: `No job with id: ${jobID} `})
         }
-        res.status(200).json({status: 'success', data: job})
+        res.status(StatusCodes.OK).json({status: 'success', data: job})
 }
 
 const createJob = async (req,res)=> {
         const data = req.body
         const newJob = await Job.create(data)
-        res.status(201).json({status: 'success', data: newJob})
+        res.status(StatusCodes.CREATED).json({status: 'success', data: newJob})
 }
 
 const updateJob = async (req, res)=> {
@@ -27,7 +28,7 @@ const updateJob = async (req, res)=> {
             return res.status(500).json({msg: `No job with id: ${jobID}`})
         }
         
-        res.status(200).json({status:'success', data: updatedJob})
+        res.status(StatusCodes.OK).json({status:'success', data: updatedJob})
 }
 
 const removeJob = async (req,res)=> {
@@ -36,7 +37,7 @@ const removeJob = async (req,res)=> {
         if (!job) {
             return res.status(500).json({msg:`No job with id: ${jobID}`})
         }
-        res.status(200).json({status: 'success', msg: 'The job has been removed'})
+        res.status(StatusCodes.OK).json({status: 'success', msg: 'The job has been removed'})
 }
 
 module.exports = {getAllJobs, getJob, createJob, updateJob, removeJob}
