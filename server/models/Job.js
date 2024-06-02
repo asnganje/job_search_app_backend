@@ -1,22 +1,29 @@
 const mongoose = require('mongoose')
 const jobSchema = new mongoose.Schema({
-    title: {
+    position: {
         type: String,
         required: true
     },
-    description: {
+    company: {
         type: String,
         required: true
     },
-    requirements: {
+    JobStatus: {
         type:String,
-        required: true
+        enum: ['interview', 'declined', 'pending'],
+        default: 'pending'
     },
-    location: {
+    JobType: {
         type:String,
-        required: true
-    }
-})
+        enum: ['full-time', 'part-time', 'internship'],
+        default: 'full-time'
+    },
+    jobLocation: {
+        type:String,
+        default: 'New Delhi'
+    }},
+    {timestamps: true}
+)
 
 const Job = mongoose.model('Job', jobSchema)
 
