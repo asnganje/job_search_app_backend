@@ -1,4 +1,6 @@
 const express = require('express')
+const morgan = require('morgan');
+require('express-async-errors')
 require('dotenv').config()
 const app = express()
 const usersRouter = require('./server/routes/userRoutes')
@@ -6,6 +8,7 @@ const applicationsRouter = require('./server/routes/applicationRoutes')
 const jobsRouter = require('./server/routes/jobRoutes')
 const connectDB = require('./server/db/connect')
 
+app.use(morgan('combined'))
 app.use(express.json())
 app.use('/api/v1/users', usersRouter)
 app.use('/api/v1/applications', applicationsRouter)
@@ -16,7 +19,7 @@ app.use('*', (req, res)=> {
 })
 
 app.use((err, req, res, next)=> {
-    res.json({msg: err})
+    res.json({msg: "Internal controller/middleware error"})
 })
 const port = process.env.PORT
 const url = process.env.MONGO_URI
