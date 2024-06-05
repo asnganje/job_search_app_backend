@@ -9,8 +9,8 @@ const connectDB = require('./server/db/connect')
 
 app.use(morgan('combined'))
 app.use(express.json())
-app.use('/api/v1/auth', usersRouter)
-app.use('/api/v1/jobs', authRouter)
+app.use('/api/v1/auth', authRouter)
+app.use('/api/v1/jobs', jobsRouter)
 
 app.use('*', (req, res)=> {
     res.json({msg: 'Resource or route not found'})
