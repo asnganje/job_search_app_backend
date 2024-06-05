@@ -22,7 +22,17 @@ const register = async (req,res)=> {
 
 const login = async (req, res) => {
     const {email, password} = req.body
-    const user = User.findOne({email, password})
+    if (!email) {
+        return res.status(StatusCodes.BAD_REQUEST).json({status:'fail', msg:'Please provide an email'})
+    }
+
+    if (!password) {
+        return res.status(StatusCodes.BAD_REQUEST).json({status:'fail', msg:'Please provide a password'})
+    }
+    const user = await User.findOne({email})
+    if (!user) {
+        res.status(StatusCodes.BAD_REQUEST).json({status:'fail', msg: `No user with email ${email}`})
+    }
     res.status(StatusCodes.OK).json({status: 'success', data: user})
 }
 
