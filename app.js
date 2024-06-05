@@ -3,14 +3,14 @@ const morgan = require('morgan');
 require('express-async-errors')
 require('dotenv').config()
 const app = express()
-const usersRouter = require('./server/routes/userRoutes')
+const authRouter = require('./server/routes/authRouter')
 const jobsRouter = require('./server/routes/jobRoutes')
 const connectDB = require('./server/db/connect')
 
 app.use(morgan('combined'))
 app.use(express.json())
-app.use('/api/v1/users', usersRouter)
-app.use('/api/v1/jobs', jobsRouter)
+app.use('/api/v1/auth', usersRouter)
+app.use('/api/v1/jobs', authRouter)
 
 app.use('*', (req, res)=> {
     res.json({msg: 'Resource or route not found'})
