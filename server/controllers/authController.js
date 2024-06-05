@@ -15,7 +15,7 @@ const {StatusCodes} = require('http-status-codes')
 const register = async (req,res)=> {
         const user = req.body
         const isFirst = await User.countDocuments() === 0;
-        isFirst? user.role = 'admin': 'user'
+        user.role = isFirst? 'admin': 'user'
         const newUser = await User.create(user)
         res.status(StatusCodes.CREATED).json({status:'success', data: newUser})
 }
