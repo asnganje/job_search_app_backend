@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const jobSchema = new mongoose.Schema({
-    position: {
+    title: {
         type: String,
         required: true
     },
@@ -8,17 +8,11 @@ const jobSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    JobStatus: {
+    industry: {
         type:String,
-        enum: ['interview', 'declined', 'pending'],
-        default: 'pending'
+        required: true
     },
-    JobType: {
-        type:String,
-        enum: ['full-time', 'part-time', 'internship'],
-        default: 'full-time'
-    },
-    jobLocation: {
+    location: {
         type:String,
         default: 'New Delhi'
     }},
