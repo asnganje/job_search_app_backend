@@ -17,6 +17,11 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    applicationStatus: {
+        type:String,
+        enum: ['interview', 'declined', 'pending'],
+        default: 'pending'
+    },
     role: {
         type: String,
         enum: ['user', 'admin'],
