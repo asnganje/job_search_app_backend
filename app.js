@@ -17,7 +17,7 @@ app.use('*', (req, res)=> {
 })
 
 app.use((err, req, res, next)=> {
-    res.json({msg: "Internal controller/middleware error"})
+    res.status(400).json({status: 'fail',msg: "Internal controller/middleware error"})
 })
 const port = process.env.PORT
 const url = process.env.MONGO_URI
